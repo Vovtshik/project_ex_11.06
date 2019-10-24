@@ -13,7 +13,6 @@ int main()
 string Punctuation_for_spaces(const string& str)
 {
     string temp{str};
-    stringstream ss(temp);
     for(char& ch : temp)
     {
         if(ch == '.' || ch == ';' || ch == ',' || ch == '?' || ch == '-' || ch == (char)39)
