@@ -1,6 +1,8 @@
 #include "../std_lib_facilities.h"
 
-string Punctuation_for_spaces(const string& str);
+string Punctuation_for_spaces(const string& str);  // The function replaces punctuation marks (.,;? - ') 
+                                                   // with spaces (does not change characters between pairs
+                                                   // of double quotes (")).
 
 int main()
 {
