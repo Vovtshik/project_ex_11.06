@@ -12,7 +12,7 @@ int main()
 
 string Punctuation_for_spaces(const string& str)
 {
-    string temp;
+ string temp;
     bool flag = false;
     stringstream ss(str);
     for(char ch; ss.get(ch);)
