@@ -4,7 +4,7 @@ string Punctuation_for_spaces(const string& str);
 
 int main()
 {
-    string str = " - don't use the as-if rule.";
+    string str = " - don't use the \"as-if\" rule.";
     cout << str << '\n';
     cout << Punctuation_for_spaces(str) << '\n';
     return 0;
@@ -12,14 +12,25 @@ int main()
 
 string Punctuation_for_spaces(const string& str)
 {
-    string temp{str};
-    stringstream ss(temp);
-    for(char& ch : temp)
+    string temp;
+    bool flag = false;
+    stringstream ss(str);
+    for(char ch; ss.get(ch);)
     {
-        if(ch == '.' || ch == ';' || ch == ',' || ch == '?' || ch == '-' || ch == (char)39)
-            ch = ' ';
-        else
-            continue;
+        if(ch == '"')
+        {
+            flag = flag?false : true;
+            temp = temp + '"';
+        }
+        else if(flag)
+            temp = temp + ch;
+        else if(!flag)
+        {
+            if(ch == '.' || ch == ';' || ch == ',' || ch == '?' || ch == '-' || ch == (char)39)
+                temp = temp + ' ';
+            else
+                temp = temp + ch;
+        }  
     }
     return temp;
 }
